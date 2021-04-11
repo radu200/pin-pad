@@ -1,0 +1,18 @@
+@import "./main.scss";
+
+.pinPadBody {
+    background-color: $pin-pad-bg-color;
+    max-width: 250px;
+    padding: 25px 30px;
+    border-radius: $theme-border-radius;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.buttonsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}

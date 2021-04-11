@@ -1,0 +1,19 @@
+@import "./main.scss";
+
+.button {
+    background-color: $button-bg-color;
+    border: none;
+    color: $button-color;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 6px 5px;
+    cursor: pointer;
+    border-radius: $theme-border-radius;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0 0 3px $primary-boder-color;
+    }
+}

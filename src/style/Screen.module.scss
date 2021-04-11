@@ -1,0 +1,45 @@
+@import "./main.scss";
+
+.screenContainer {
+  width: 100%;
+  min-height: 60px;
+  margin-bottom: 8px;
+  border: 2px solid $border-screen-color;
+  border-radius: $theme-border-radius;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.screenValue {
+  color: $screen-value-color;
+}
+
+.screenCodeVisible {
+  font-size: 18px;
+  margin: 2px;
+  color: $screen-value-color;
+}
+
+.screenCodeHidden {
+  font-size: 18px;
+  margin: 2px;
+  color: $screen-value-color;
+  animation: screenCodeValue 0s 0s;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards
+}
+
+@keyframes screenCodeValue {
+  100% {
+    font-size: 12px;
+    height: 5px;
+    width: 5px;
+    padding-left: 3px;
+    padding-right: 3px;
+    background-color: $screen-value-color;
+    ;
+    border-radius: 50%;
+  }
+
+}
