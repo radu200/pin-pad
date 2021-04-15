@@ -11,8 +11,7 @@ function Button({ value, onClick }: props) {
         <button
             data-testid="pin-pad-btn"
             onClick={onClick}
-            className={style.button}
-        >
+            className={style.button}>
             {value}
         </button>
     );

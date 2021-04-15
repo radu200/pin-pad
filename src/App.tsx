@@ -1,4 +1,4 @@
-import PagePinPad from './pages';
+import PagePinPad from "./pages";
 
 function App() {
   return <PagePinPad />;

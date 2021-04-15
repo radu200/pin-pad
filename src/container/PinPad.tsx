@@ -63,21 +63,22 @@ function PinPadContainer() {
         let timer: ReturnType<typeof setTimeout> | null = null;
         if (state.code.length === MAX_CODE_LENGTH && !state.locked) {
             timer = setTimeout(() => {
-                const valid: boolean | null = validateCode(state.code);
-                if (!valid) {
-                    const { error, wrongAttempts, ...rest } = initialState;
-                    setState((state) => ({
-                        ...state,
-                        error: true,
-                        wrongAttempts: state.wrongAttempts + 1,
-                        ...rest,
-                    }));
-                } else {
-                    const { success, ...rest } = initialState;
-                    setState((state) => ({ ...state, success: true, ...rest }));
-                }
-            }, 300);
+            const valid: boolean | null = validateCode(state.code);
+            if (!valid) {
+                const { error, wrongAttempts, ...rest } = initialState;
+                setState((state) => ({
+                    ...state,
+                    error: true,
+                    wrongAttempts: state.wrongAttempts + 1,
+                    ...rest,
+                }));
+            } else {
+                const { success, ...rest } = initialState;
+                setState((state) => ({ ...state, success: true, ...rest }));
+            }
+          }, 800);
         }
+
         return () => {
             if (timer) {
                 clearTimeout(timer);
@@ -86,14 +87,14 @@ function PinPadContainer() {
     }, [state.code, state.locked]);
 
     const getButtonValue = (newNum: { visible: boolean; value: number; }) => {
+        let code = [...state.code, newNum];
         if (state.code.length === MAX_CODE_LENGTH - 1) {
             const { visible, ...rest } = newNum;
-            setState((state) => ({
-                ...state,
-                code: [...state.code, { visible: true, ...rest }],
-            }));
-        } else {
-            setState((state) => ({ ...state, code: [...state.code, newNum] }));
+            code = [...state.code, { visible: true, ...rest }];
+        }
+
+        if (state.code.length <= MAX_CODE_LENGTH - 1) {
+            setState((state) => ({ ...state, code: code }));
         }
     };
 
