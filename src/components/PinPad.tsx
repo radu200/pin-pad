@@ -28,6 +28,7 @@ function PinPad({
                         row.map((col, i) => (
                             <Button
                                 key={i}
+                                locked={locked}
                                 value={col.value}
                                 onClick={() => getButtonValue(col)}
                             />
